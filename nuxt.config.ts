@@ -14,8 +14,9 @@ export default defineNuxtConfig({
     'plugins/axios.js',
   ],
   runtimeConfig: {
+    apiKey: process.env.NUXT_API_KEY,
     public: {
-      baseURL: process.env.BASE_URL || 'http://localhost:4000',
+      baseURL: process.env.NUXT_BASE_URL,
     },
   },
   css: ['~/assets/css/main.css'],
