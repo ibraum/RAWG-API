@@ -8,6 +8,9 @@
             </div>
         </teleport>
         <div class="navbar">
+            <div class="logo">
+                <img src="~/assets/images/logo/logo.png" alt="">
+            </div>
             <nav class="nav_field">
                 <ul>
                     <li><NuxtLink to=""><i class="pi pi-home"></i></NuxtLink></li>
@@ -15,11 +18,22 @@
                     <li><NuxtLink to=""><i class="pi pi-asterisk"></i></NuxtLink></li>
                 </ul>
             </nav>
+            <div class="nothing"></div>
         </div>
 
         <div class="container_hero">
             <div class="container_child">
-                <div class="tendances"></div>
+                <div class="search_like">
+                    <div class="search">
+                        <i class="pi pi-search"></i>
+                        <form class="form">
+                            <input type="text" placeholder="Search">
+                        </form>
+                    </div>
+                    <div class="like">
+                        <div class="true_like">2</div>
+                    </div>
+                </div>
                 <div class="new_realeases">
                     <slot/>
                 </div>
@@ -50,17 +64,33 @@
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 20px;
         /* background-color: rgb(36, 96, 148); */
+    }
+
+    .logo{
+        width: 80px;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        /* height: 20%; */
+    }
+
+    .logo img {
+        width: 100%;
+        /* height: 10px; */
     }
 
     .nav_field{
         padding: 15px  20px;
-        height: 20%;
+        height: 150px;
         width: 50px;
         border-radius: 30px;
         backdrop-filter: blur(50px);
-        box-shadow: -10px -10px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.15), 10px 10px 30px rgba(0, 0, 0, 0.1);
         position: relative;
         z-index: 100;
     }
@@ -123,15 +153,39 @@
         width: 100%;
         height: 100%;
         backdrop-filter: blur(50px);
-        box-shadow: -10px -10px 30px rgba(0, 0, 0, 0.25), 10px 10px 30px rgba(0, 0, 0, 0.25);
+        box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.05), 10px 10px 30px rgba(0, 0, 0, 0.55);
         border-radius: 30px;
         padding: 30px;
+        display: grid;
+        grid-template-rows: 40px 1fr;
     }
+
+    .search_like , .new_releases{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 250px 1fr;
+    }
+
+    .search{
+        border-radius: 30px;
+        box-shadow: inset 10px 10px 20px rgba(0, 0, 0, 0.1), inset -10px -10px 10px rgba(255, 255, 255, 0.01), 10px 10px 10px rgba(0, 0, 0, 0.25), -10px -10px 10px rgba(255, 255, 255, 0.01);
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+        color: rgb(134, 134, 134);
+        gap: 10px;
+    }
+
+    .form input{
+        background-color: transparent;
+    }
+
 
     @media screen and (max-width: 1200px) {
         .app{
             display: grid;
-            grid-template-rows: 100px 1fr;
+            grid-template-rows: 175px 1fr;
             grid-template-columns: 1fr;
             z-index: 100;
         }
