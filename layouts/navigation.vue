@@ -19,7 +19,10 @@
 
         <div class="container_hero">
             <div class="container_child">
-                <slot/>
+                <div class="tendances"></div>
+                <div class="new_realeases">
+                    <slot/>
+                </div>
             </div>
         </div>
                 
@@ -150,6 +153,18 @@
 
         .container_hero{
             padding: 0px 10px 10px 10px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+
+        body{
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        .nav_field{
+            width: 40%;
         }
     }
 </style>
