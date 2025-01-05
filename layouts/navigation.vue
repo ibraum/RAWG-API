@@ -31,7 +31,10 @@
                         </form>
                     </div>
                     <div class="like">
-                        <div class="true_like">2</div>
+                        <div class="true_like">
+                            <i class="pi pi-heart"></i>
+                            <div class="text">Like !</div>
+                        </div>
                     </div>
                 </div>
                 <div class="new_realeases">
@@ -181,6 +184,25 @@
         background-color: transparent;
     }
 
+    .like{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    .true_like {
+        padding: 5px 20px;
+        background-color: var(--black);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+        border-radius: 20px;
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
 
     @media screen and (max-width: 1200px) {
         .app{
@@ -219,6 +241,14 @@
 
         .nav_field{
             width: 40%;
+        }
+
+        .search_like{
+            grid-template-columns: 1fr;
+        }
+
+        .like {
+            display: none;
         }
     }
 </style>
