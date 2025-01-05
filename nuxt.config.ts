@@ -9,6 +9,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
     '@primevue/nuxt-module',
+    '@pinia/nuxt'
   ],
   plugins: [
     'plugins/axios.js',

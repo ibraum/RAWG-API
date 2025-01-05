@@ -37,9 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="new_realeases">
-                    <slot/>
-                </div>
+                <slot/>
             </div>
         </div>
                 
@@ -163,7 +161,7 @@
         grid-template-rows: 40px 1fr;
     }
 
-    .search_like , .new_releases{
+    .search_like {
         width: 100%;
         height: 100%;
         display: grid;
@@ -249,6 +247,10 @@
 
         .like {
             display: none;
+        }
+
+        .container_child{
+            padding: 10px;
         }
     }
 </style>
