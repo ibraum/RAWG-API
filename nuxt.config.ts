@@ -6,7 +6,7 @@ dotenv.config()
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: [
     '@primevue/nuxt-module',
   ],
@@ -14,12 +14,12 @@ export default defineNuxtConfig({
     'plugins/axios.js',
   ],
   runtimeConfig: {
-    apiKey: process.env.NUXT_API_KEY,
     public: {
+      apiKey: process.env.NUXT_API_KEY,
       baseURL: process.env.NUXT_BASE_URL,
     },
   },
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/style.scss'],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -34,7 +34,7 @@ export default defineNuxtConfig({
             preset: Aura,
             options: {
                 prefix: 'p',
-                darkModeSelector: 'system',
+                darkModeSelector: 'false',
                 cssLayer: false
               }
           }

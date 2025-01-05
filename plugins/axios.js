@@ -1,18 +1,17 @@
 import axios from 'axios';
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const config = useRuntimeConfig();
+  const runtimeConfig = useRuntimeConfig();
   const axiosInstance = axios.create({
-    baseURL: config.public.baseURL,
+    baseURL: runtimeConfig.public.baseURL,
   });
   axiosInstance.interceptors.request.use((config) => {
     const defaultQueryParams = {
-      key: config.apiKey,
+      key: runtimeConfig.public.apiKey,
       lang: 'fr',
     };
-
     config.params = {
-      ...config.params,
+      ...(config.params || {}) ,
       ...defaultQueryParams,
     };
 

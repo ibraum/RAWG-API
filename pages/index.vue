@@ -1,29 +1,21 @@
 <template>
     <div>
-        Hello
-        {{  response }}
+        ggggg
     </div>
 </template>
 
 <script setup lang="ts">
+    definePageMeta(
+        {
+            layout: 'navigation'
+        }
+    )
     const { $axios } = useNuxtApp()
     const response = ref()
-    try {
-    response.value = await $axios.get('/games', 
-    {
-        params: {
-            key: '7ca69c1404024421a16145814ae40c77'
-        }
-    });
-    console.log(response.value);
-  } catch (error) {
-    console.error('Error during API call:', error.message);
-    console.error('Full error:', error);
-  }
 
-    // onMounted(async () => {
-    //     data.value = 
-    // });
+    onMounted(async () => {
+        response.value = await $axios.get('/games') 
+    });
 </script>
 
 <style scoped>
