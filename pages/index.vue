@@ -9,11 +9,11 @@
                 <div class="tendance_games">4</div>
             </div>
        </div>
-       <div class="hero_releases">
-                 <!-- {{ game }} -->
+       <div class="hero_releases"> 
+        {{ game }} 
                  <h2>&nbsp;</h2>
             <div class="hero">
-                <img :src="game?.background_image_additional" alt="">
+                <img :src="game?.background_image" alt="">
                  <!-- {{ games }} -->
             </div>
             <div class="releases">
@@ -209,7 +209,7 @@
     }
 
     onMounted(() => {
-        fetchGame(30)
+        fetchGame(39999)
     });
 </script>
 
@@ -234,11 +234,14 @@
         box-shadow: inset 10px -10px 60px black, -5px -5px 15px rgba(255, 255, 255, 0.091);
         border-radius: 15px;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero img {
         object-fit: cover;
-        object-position: center;
+        object-position: top center;
         width: 100%;
         height: 100%;
     }
