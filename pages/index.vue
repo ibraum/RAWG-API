@@ -13,7 +13,6 @@
                  <h2>&nbsp;</h2>
             <div class="hero">
                 <img :src="game?.background_image" alt="">
-                 {{ game?.background_image }}
             </div>
             <div class="releases">
                 <div class="new white_text">New Releases</div>
