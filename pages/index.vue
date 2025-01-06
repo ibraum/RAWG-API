@@ -12,12 +12,28 @@
        <div class="hero_releases"> 
                  <h2>&nbsp;</h2>
             <div class="hero">
+                <div class="container_game_informations">
+                    <div class="game_infos">
+                        <h1 class="game_title">{{ game?.name }}</h1>
+                        <p  class="game_description">
+                            <p v-html="game?.description"></p>
+                        </p>
+                        <div class="more_show_details">
+                            <NuxtLink to="">
+                                <button class="show_details"><i class="pi pi-eye"></i></button>
+                            </NuxtLink>
+
+                            <NuxtLink to="">
+                                <button class="more">more</button>
+                            </NuxtLink>
+                        </div>
+                    </div>
+                </div>
                 <img :src="game?.background_image" alt="">
             </div>
             <div class="releases">
                 <div class="new white_text">New Releases</div>
                 <div class="new_games">
-                    <!-- {{ game }} -->
                       <div class="game">1</div>
                       <div class="game">2</div>
                       <div class="game">3</div>
@@ -196,6 +212,7 @@
 
     const games  = ref<Game[]>()
     const game  = ref<Game>()
+    const max = 12
 
     const fetchGame = async (id: Number | String) => {
         try {
@@ -206,8 +223,19 @@
         }
     }
 
+        const fetchGames = async () => {
+        try {
+            const response = await $axios.get('/games')
+            games.value = response.data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     onMounted(() => {
-        fetchGame(39999)
+        const id = Math.floor(Math.random() * max)
+        fetchGame('grand-theft-auto-v')
+        fetchGames()
     });
 </script>
 
@@ -235,6 +263,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+    }
+
+    .container_game_informations{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(30deg, rgba(0, 0, 0, 0.75), rgba(255, 255, 255, 0));
+        padding-left: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        align-items: end;
+        justify-content: start;
     }
 
     .hero img {
@@ -242,6 +285,43 @@
         object-position: top center;
         width: 100%;
         height: 100%;
+    }
+
+    .more_show{
+        margin-top: 10px;
+    }
+
+    .game_description {
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .more_show_details{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .show_details{
+        width: 40px;
+        height: 40px;
+        background-color: var(--black);
+        border-radius: 5px;
+        box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.3), 10px 10px 30px rgba(255, 255, 255, 0.3);
+    }
+
+    .more {
+        height: 35px;
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 1);
+        backdrop-filter: blur(10px);
+        color: var(--black);
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 5px;
     }
 
     .releases {
