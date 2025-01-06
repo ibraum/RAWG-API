@@ -37,3 +37,9 @@ body::-webkit-scrollbar{
 h1 {
     font-size: 2.5rem;
 }
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
