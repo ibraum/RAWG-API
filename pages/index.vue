@@ -234,8 +234,8 @@
 
     onMounted(() => {
         const id = Math.floor(Math.random() * max)
-        fetchGame('grand-theft-auto-v')
         fetchGames()
+        fetchGame('grand-theft-auto-v')
     });
 </script>
 
@@ -244,10 +244,13 @@
         width: 100%;
         height: 100%;
         padding-top: 10px;
-        display: grid;
-        grid-template-columns: 250px 1fr;
+        display: flex;
         gap: 20px;
         overflow-y: scroll;
+    }
+
+    .hero_releases{
+        width: calc(100% - 250px);
     }
 
     .new_releases::-webkit-scrollbar{
@@ -338,6 +341,7 @@
     }
 
     .game {
+        flex-grow: 1;
         width: 22%;
         min-width: 250px;
         height: 100%;
@@ -348,6 +352,8 @@
     .trending{
         display: flex;
         flex-direction: column;
+        width: 250px;
+        height: 100%;
         /* gap: 10px; */
     }
 
@@ -370,13 +376,40 @@
         .new_releases {
             margin-top: 10px;
             display: flex;
-            flex-direction: column-reverse;
-            min-height: 100vh;
+            justify-content: center;
+            flex-direction: column;
+            overflow: initial;
+            /* min-height: 100vh; */
+        }
+
+        .trending{
+            min-height: 80px;
+            max-height: 400px;
+            height: initial;
+            width: 100%;
+            align-items: start;
+            justify-content: center;
+        }
+
+        .trending_div_father{
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .tendance_games{
+            width: 120px;
+            height: 100px;
+            flex-grow: 1;
         }
 
         .hero_releases{
             margin-bottom: 10px;
-            min-height: 100vh;
+            width: 100%;
+            height: 100vh;
+        }
+        .new_games{
+            min-height: calc(100vh - 590px);
         }
     }
 </style>

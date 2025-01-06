@@ -204,9 +204,11 @@
 
     @media screen and (max-width: 1200px) {
         .app{
-            display: grid;
-            grid-template-rows: 175px 1fr;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
+            /* grid-template-rows: 175px 1fr;
+            grid-template-columns: 1fr; */
+            height: 100%;
             z-index: 100;
         }
 

@@ -15,7 +15,7 @@
 
 body{
     width: 100%;
-    min-height: 100vh;
+    // min-height: 100vh;
     background-size: cover;
     position: relative;
     background-color: var(--black);
@@ -38,8 +38,12 @@ h1 {
     font-size: 2.5rem;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     h1 {
         font-size: 2rem;
+    }
+
+    body{
+        min-height: 100vh;
     }
 }
