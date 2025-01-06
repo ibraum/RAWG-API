@@ -100,7 +100,7 @@
         content: '';
         width: 105%;
         height: 105%;
-        /* background-color: white; */
+        /* background-color: rgb(142, 43, 43); */
         position: absolute;
         top: -2.5%;
         left: -2.5%;
@@ -157,13 +157,14 @@
         box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.05), 10px 10px 30px rgba(0, 0, 0, 0.55);
         border-radius: 30px;
         padding: 30px;
-        display: grid;
+        display: flex;
+        flex-direction: column;
         grid-template-rows: 40px 1fr;
     }
 
     .search_like {
         width: 100%;
-        height: 100%;
+        height: 40px;
         display: grid;
         grid-template-columns: 250px 1fr;
     }
@@ -228,6 +229,7 @@
         }
 
         .container_hero{
+            height: 140vh;
             padding: 0px 10px 10px 10px;
         }
     }

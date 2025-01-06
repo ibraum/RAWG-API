@@ -275,7 +275,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(30deg, rgba(0, 0, 0, 0.75), rgba(255, 255, 255, 0));
+        background: linear-gradient(30deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
         padding-left: 10px;
         padding-bottom: 10px;
         display: flex;
@@ -329,6 +329,7 @@
 
     .releases {
         padding-top: 20px;
+        min-height: 100px;
     }
 
     .new_games{
@@ -344,7 +345,7 @@
         flex-grow: 1;
         width: 22%;
         min-width: 250px;
-        height: 100%;
+        height: 100px;
         border-radius: 15px;
         box-shadow: inset 10px -10px 60px black, -10px -10px 30px rgba(255, 255, 255, 0.091);
     }
@@ -354,7 +355,6 @@
         flex-direction: column;
         width: 250px;
         height: 100%;
-        /* gap: 10px; */
     }
 
     .trending_div_father{

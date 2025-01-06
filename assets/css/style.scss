@@ -15,7 +15,7 @@
 
 body{
     width: 100%;
-    // min-height: 100vh;
+    height: auto;
     background-size: cover;
     position: relative;
     background-color: var(--black);
@@ -27,7 +27,7 @@ body::-webkit-scrollbar{
 
 #__nuxt, #__nuxt .app_div{
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
 }
 
 .white_text{
@@ -44,6 +44,6 @@ h1 {
     }
 
     body{
-        min-height: 100vh;
+        // min-height: 100vh;
     }
 }
