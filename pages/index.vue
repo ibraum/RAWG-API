@@ -10,9 +10,11 @@
             </div>
        </div>
        <div class="hero_releases">
-            <h2>&nbsp;</h2>
+                 <!-- {{ game }} -->
+                 <h2>&nbsp;</h2>
             <div class="hero">
-                <img :src="game?.background_image" alt="">
+                <img :src="game?.background_image_additional" alt="">
+                 <!-- {{ games }} -->
             </div>
             <div class="releases">
                 <div class="new white_text">New Releases</div>
@@ -29,6 +31,7 @@
 </template>
 
 <script setup lang="ts">
+    const { $axios } = useNuxtApp()
     definePageMeta(
         {
             layout: 'navigation'
@@ -193,13 +196,20 @@
         slug: string;
     }
 
+    const games  = ref<Game[]>()
+    const game  = ref<Game>()
 
-    const games  = ref([])
-    const game  = ref<Game | null>()
+    const fetchGame = async (id: Number | String) => {
+        try {
+            const response = await $axios.get('/games/'+id)
+            game.value = response.data
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     onMounted(() => {
-        games.value = useGamesStore().games.data
-        game.value = useOneGameStore().game.data
+        fetchGame(30)
     });
 </script>
 
@@ -224,6 +234,13 @@
         box-shadow: inset 10px -10px 60px black, -5px -5px 15px rgba(255, 255, 255, 0.091);
         border-radius: 15px;
         overflow: hidden;
+    }
+
+    .hero img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
     }
 
     .releases {
