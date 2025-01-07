@@ -159,7 +159,6 @@
         padding: 30px;
         display: flex;
         flex-direction: column;
-        grid-template-rows: 40px 1fr;
     }
 
     .search_like {
@@ -229,8 +228,12 @@
         }
 
         .container_hero{
-            height: 140vh;
+            min-height: 140vh;
             padding: 0px 10px 10px 10px;
+        }
+
+        .container_child{
+            min-height: 100vh;
         }
     }
 

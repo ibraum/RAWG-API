@@ -259,7 +259,7 @@
 
     .hero {
         width: 100%;
-        height: 400px;
+        height: 350px;
         box-shadow: inset 10px -10px 60px black, -5px -5px 15px rgba(255, 255, 255, 0.091);
         border-radius: 15px;
         overflow: hidden;
@@ -338,14 +338,14 @@
         flex-wrap: wrap;
         margin-top: 10px;
         gap: 20px;
-        height: calc(100vh - 590px);
+        min-height: calc(100vh - 590px);
     }
 
     .game {
         flex-grow: 1;
-        width: 22%;
-        min-width: 250px;
-        height: 100px;
+        width: 200px;
+        min-width: 200px;
+        height: 160px;
         border-radius: 15px;
         box-shadow: inset 10px -10px 60px black, -10px -10px 30px rgba(255, 255, 255, 0.091);
     }
@@ -379,7 +379,7 @@
             justify-content: center;
             flex-direction: column;
             overflow: initial;
-            /* min-height: 100vh; */
+            min-height: 100vh;
         }
 
         .trending{
@@ -406,10 +406,14 @@
         .hero_releases{
             margin-bottom: 10px;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
         }
         .new_games{
             min-height: calc(100vh - 590px);
+        }
+
+        .hero {
+            height: 400px;
         }
     }
 </style>
