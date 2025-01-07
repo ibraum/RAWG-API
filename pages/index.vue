@@ -212,7 +212,7 @@
 
     const games  = ref<Game[]>()
     const game  = ref<Game>()
-    const max = 12
+    const max = 200
 
     const fetchGame = async (id: Number | String) => {
         try {
@@ -233,9 +233,10 @@
     }
 
     onMounted(() => {
-        const id = Math.floor(Math.random() * max)
+        const id = Math.floor((Math.random() * max) + 110)
         fetchGames()
-        fetchGame('grand-theft-auto-v')
+        fetchGame(id)
+        // fetchGame('grand-theft-auto-v')
     });
 </script>
 
