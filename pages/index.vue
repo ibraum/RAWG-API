@@ -3,10 +3,12 @@
        <div class="trending">
             <h2>Tendances</h2>
             <div class="trending_div_father">
-                <div class="tendance_games">1</div>
-                <div class="tendance_games">2</div>
-                <div class="tendance_games">3</div>
-                <div class="tendance_games">4</div>
+                <template v-for="i in 4" :key="i">
+                    <div class="tendance_games">
+                        <div class="container_game_informations hover_div"></div>
+                        <img :src="game?.background_image" alt="" class="img">
+                    </div>
+                </template>
             </div>
        </div>
        <div class="hero_releases"> 
@@ -29,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                <img :src="game?.background_image" alt="">
+                <img :src="game?.background_image" alt="" class="img"/>
             </div>
             <div class="releases">
                 <div class="new white_text">New Releases</div>
@@ -232,10 +234,30 @@
         }
     }
 
+        let i = 0;
+    onBeforeMount(() => {
+        setInterval(() => {
+            if (i === 9) i = 0;
+            const popularGames = [
+                'street-fighter-iv',
+                'grand-theft-auto-v',
+                '88-heroes',
+                'injustice-god-amons-us',
+                'fruit-ninja-classic',
+                'titan-quest',
+                'freedom-planet',
+                'jetpack-joyride',
+                'infinity-blade-iii',
+                'minecraft',
+            ];
+            fetchGame(popularGames[i])
+            i += 1;
+        }, 10000)
+    }),
+
     onMounted(() => {
-        const id = Math.floor((Math.random() * max) + 110)
         fetchGames()
-        fetchGame(id)
+        fetchGame('grand-theft-auto-v')
         // fetchGame('grand-theft-auto-v')
     });
 </script>
@@ -284,7 +306,7 @@
         justify-content: start;
     }
 
-    .hero img {
+    .img {
         object-fit: cover;
         object-position: top center;
         width: 100%;
@@ -346,7 +368,7 @@
         flex-grow: 1;
         width: 200px;
         min-width: 200px;
-        height: 160px;
+        height: 300px;
         border-radius: 15px;
         box-shadow: inset 10px -10px 60px black, -10px -10px 30px rgba(255, 255, 255, 0.091);
     }
@@ -371,6 +393,12 @@
         width: 100%;
         height: 25%;
         border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hover_div{
+        background-color: transparent;
     }
 
     @media screen and (max-width: 1000px) {
