@@ -368,7 +368,7 @@
         flex-grow: 1;
         width: 200px;
         min-width: 200px;
-        height: 300px;
+        height: 400px;
         border-radius: 15px;
         box-shadow: inset 10px -10px 60px black, -10px -10px 30px rgba(255, 255, 255, 0.091);
     }
