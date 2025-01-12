@@ -3,7 +3,7 @@
        <div class="trending">
             <h2>Tendances</h2>
             <div class="trending_div_father">
-                <template v-for="i in 4" :key="i">
+                <template v-for="trend in trends" :key="trend.id">
                     <div class="tendance_games">
                         <div class="container_game_informations hover_div"></div>
                     </div>
@@ -239,17 +239,12 @@
         let i = 0;
     onBeforeMount(() => {
         setInterval(() => {
-            if (i === 9) i = 0;
+            if (i === 4) i = 0;
             const popularGames = [
-                'grand-theft-auto-v',
-                '88-heroes',
-                'injustice-god-amons-us',
-                'fruit-ninja-classic',
-                'titan-quest',
-                'freedom-planet',
-                'jetpack-joyride',
-                'infinity-blade-iii',
                 'minecraft',
+                'injustice-god-amons-us',
+                'titan-quest',
+                'fortnite',
             ];
             fetchGame(popularGames[i])
             i += 1;
@@ -258,7 +253,7 @@
 
     onMounted(() => {
         fetchGames(4)
-        fetchGame('minecraft')
+        fetchGame('fortnite')
     });
 </script>
 
