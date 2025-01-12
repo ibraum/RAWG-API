@@ -5,7 +5,7 @@
             <div class="trending_div_father">
                 <template v-for="trend in trends" :key="trend.id">
                     <div class="tendance_games">
-                        <div class="container_game_informations hover_div"></div>
+                        <div>{{ trend.name }}</div>
                     </div>
                 </template>
             </div>
@@ -215,6 +215,27 @@
         slug: string;
     }
 
+    const trends = ref(
+        [
+            {
+                id: 1,
+                name: 'Action'
+            },
+            {
+                id: 1,
+                name: 'Tir'
+            },
+            {
+                id: 1,
+                name: 'FPS'
+            },
+            {
+                id: 1,
+                name: 'RPG'
+            }
+        ]
+    )
+
     const games  = ref<Game[]>()
     const game  = ref<Game>()
 
@@ -414,6 +435,24 @@
         border-radius: 10px;
         position: relative;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tendance_games div{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        transition: all .1s .1s ease-in-out;
+    }
+
+    .tendance_games div:hover{
+        font-weight: bold;
     }
 
     .hover_div{

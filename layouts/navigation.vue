@@ -69,7 +69,6 @@
         flex-direction: column;
         padding: 10px 0;
         gap: 20px;
-        /* background-color: rgb(36, 96, 148); */
     }
 
     .logo{
@@ -77,12 +76,10 @@
         display: flex;
         align-items: start;
         justify-content: center;
-        /* height: 20%; */
     }
 
     .logo img {
         width: 100%;
-        /* height: 10px; */
     }
 
     .nav_field{
