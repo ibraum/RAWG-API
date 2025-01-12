@@ -429,7 +429,7 @@
     }
 
     .tendance_games{
-        box-shadow: inset 10px -10px 60px black;
+        box-shadow: inset 10px -10px 60px rgba(0, 0, 0, 0.443);
         width: 100%;
         height: 25%;
         border-radius: 10px;
@@ -453,6 +453,9 @@
 
     .tendance_games div:hover{
         font-weight: bold;
+        background-color: black;
+        color: rgb(255, 187, 0);
+        cursor: pointer;
     }
 
     .hover_div{
@@ -486,7 +489,7 @@
 
         .tendance_games{
             width: 120px;
-            height: 100px;
+            height: 50px;
             flex-grow: 1;
         }
 
