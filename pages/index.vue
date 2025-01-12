@@ -3,10 +3,10 @@
        <div class="trending">
             <h2>Tendances</h2>
             <div class="trending_div_father">
-                <template v-for="trend in trends" :key="trend.id">
-                    <div class="tendance_games">
+                <template  v-for="trend in trends" :key="trend.id">
+                    <NuxtLink :to="trend.link" class="tendance_games">
                         <div>{{ trend.name }}</div>
-                    </div>
+                    </NuxtLink>
                 </template>
             </div>
        </div>
@@ -219,19 +219,23 @@
         [
             {
                 id: 1,
-                name: 'Action'
+                name: 'Action',
+                link: '/action'
             },
             {
-                id: 1,
-                name: 'Tir'
+                id: 2,
+                name: 'Tir',
+                link: '/tir'
             },
             {
-                id: 1,
-                name: 'FPS'
+                id: 3,
+                name: 'FPS',
+                link: '/fps'
             },
             {
-                id: 1,
-                name: 'RPG'
+                id: 4,
+                name: 'RPG',
+                link: '/rpg'
             }
         ]
     )
