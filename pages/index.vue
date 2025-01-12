@@ -426,6 +426,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        padding: 1px;
     }
 
     .tendance_games{
@@ -438,6 +439,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .tendance_games:hover {
+        outline: 2px solid rgba(255, 255, 255, 0.1);
     }
 
     .tendance_games div{
