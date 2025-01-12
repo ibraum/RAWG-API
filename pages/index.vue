@@ -6,7 +6,6 @@
                 <template v-for="i in 4" :key="i">
                     <div class="tendance_games">
                         <div class="container_game_informations hover_div"></div>
-                        <img :src="game?.background_image" alt="" class="img">
                     </div>
                 </template>
             </div>
@@ -36,10 +35,14 @@
             <div class="releases">
                 <div class="new white_text">New Releases</div>
                 <div class="new_games">
-                      <div class="game">1</div>
-                      <div class="game">2</div>
-                      <div class="game">3</div>
-                      <div class="game">4</div>
+                    <template v-for="game in games" :key="game?.id">
+                        <div class="game">
+                            <img :src="game.background_image" alt="">
+                            <div class="game_under_description">
+                                {{ game.name }}
+                            </div>
+                        </div>
+                    </template>
                 </div>
             </div>
        </div>
@@ -214,7 +217,6 @@
 
     const games  = ref<Game[]>()
     const game  = ref<Game>()
-    const max = 200
 
     const fetchGame = async (id: Number | String) => {
         try {
@@ -225,10 +227,10 @@
         }
     }
 
-        const fetchGames = async () => {
+    const fetchGames = async (a: Number) => {
         try {
-            const response = await $axios.get('/games')
-            games.value = response.data
+            const response = await $axios.get('/games?page_size='+a)
+            games.value = response.data.results
         } catch (error) {
             console.log(error)
         }
@@ -239,7 +241,6 @@
         setInterval(() => {
             if (i === 9) i = 0;
             const popularGames = [
-                'street-fighter-iv',
                 'grand-theft-auto-v',
                 '88-heroes',
                 'injustice-god-amons-us',
@@ -256,9 +257,8 @@
     }),
 
     onMounted(() => {
-        fetchGames()
-        fetchGame('grand-theft-auto-v')
-        // fetchGame('grand-theft-auto-v')
+        fetchGames(4)
+        fetchGame('minecraft')
     });
 </script>
 
@@ -371,6 +371,30 @@
         height: 400px;
         border-radius: 15px;
         box-shadow: inset 10px -10px 60px black, -10px -10px 30px rgba(255, 255, 255, 0.091);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .game img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -100;
+    }
+
+    .game_under_description{
+        z-index: 100;
+        padding: 10px;
+        background: linear-gradient(10deg, black,rgba(0, 0, 0, 0.232), rgba(255, 255, 255, 0));
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: end;
+        font-size: 1.2rem;
     }
 
     .trending{
